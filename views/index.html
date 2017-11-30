@@ -1,58 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Evironmental Sensor</title>
-
-    <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
     
-    <script src="view.js"></script>
-</head>
-
-<body class="env">
-    <div id="container">
-        <div id="header">
-            <h3>Welcome To The Environmental Sensor Analysis Page</h3>
-        </div>
-
-        <div id="leftWindow">
-            <h4>SELECT RANGE:</h4>
-            FROM:<input type="text" class="datepicker" id="date1">
-            TO:<input type="text" class="datepicker" id="date2">
-            <h4>SELECT SENSOR:</h4>
-            SENSOR 1 <input type="checkbox" name="sensors" id="sen1" checked="yes">
-            SENSOR 2 <input type="checkbox" name="sensors" id="sen2" checked="yes">
-            SENSOR 3 <input type="checkbox" name="sensors" id="sen3" checked="yes">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Evironmental Sensor</title>
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>       
+        
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">       
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="stylesheets/styles.css" rel="stylesheet">
+        
+        <!--Charting Scripts-->
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        
+        
+    </head>
+    
+    <body class="env">
+        <div id="container" class="container-fluid">
+            <div id="header">
+                <h3>Welcome To The Environmental Sensor Analysis Page</h3>
+            </div>
             
-            <h4>SELECT VIEW:</h4>
-            <form action="">
-                <input type="radio" name="graph" value="line"> Line
-                <input title="Coming Soon!" type="radio" name="graph" value="bar" disabled="yes" toolt> Bar
-                <input title="Coming Soon!" type="radio" name="graph" value="hist" disabled="yes"> Histogram
-                <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Dot
-                <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Density Plot
-            </form>
-            <input type="button" id="myButton" value="submit">
-        </div>
+            <div id="leftWindow">
+                <h4>SELECT RANGE:</h4>
+                FROM:<input type="text" class="datepicker" id="date1">
+                TO:<input type="text" class="datepicker" id="date2">
+                <h4>SELECT SENSOR:</h4>
+                SENSOR 1 <input type="checkbox" name="sensors" id="sen1" checked="yes">
+                SENSOR 2 <input type="checkbox" name="sensors" id="sen2" checked="yes">
+                SENSOR 3 <input type="checkbox" name="sensors" id="sen3" checked="yes">
+                
+                <h4>SELECT VIEW:</h4>
+                <form action="">
+                    <input type="radio" name="graph" value="line"> Line
+                    <input title="Coming Soon!" type="radio" name="graph" value="bar" disabled="yes" toolt> Bar
+                    <input title="Coming Soon!" type="radio" name="graph" value="hist" disabled="yes"> Histogram
+                    <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Dot
+                    <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Density Plot
+                </form>
+                <input type="button" id="myButton" value="submit">
+            </div>
             
-        <div id="rightWindow">
-            <div id="recordCount">Records Returned: <input type="text" id="rcrdRtrnd" value=""></input></div>
-            <div id="chart"></div>
-            <div id="stats"></div>
+            <div id="rightWindow">
+                <div id="recordCount">Records Returned: <input type="text" id="rcrdRtrnd" value=""></input></div>
+                <div id="chart"></div>
+                <div id="stats"></div>
+            </div>
         </div>
-    </div>
-</body>
-
-</html>
+        <!-- Additional Bootstrap Functionality-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<!--Local js file -->        
+        <script src="js/view.js"></script>
+    </body>
+    
+    </html>
+    

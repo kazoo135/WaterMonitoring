@@ -2,12 +2,18 @@ var express = require("express"),
     app = express();
 
 var port = process.env.PORT || 8080;
+var path = require('path');
 
+//serve static files such as css, imgs, from public folder
 app.use(express.static(__dirname + '/public'));
 
 app.get("/sayHello", function (request, response) {
   var user_name = request.query.user_name;
   response.end("Hello " + user_name + "!");
+});
+
+app.get('/', function(request, response){
+  response.sendFile('index.html', { root:path.join(__dirname, './views') });
 });
 
 var mydb;
