@@ -15,7 +15,8 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
-        
+        <!-- reset stylesheet -->
+        <link rel="stylesheet" href="stylesheets/reset.css">
         <!-- Bootstrap -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">       
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -29,37 +30,60 @@
     </head>
     
     <body class="env">
-        <div id="container" class="container-fluid">
-            <div id="header">
-                <h3>Welcome To The Environmental Sensor Analysis Page</h3>
+        <div id="container" class="container">
+            <div class="row">
+                <section id="header">
+                    <h3>Water Sensing Analyzer</h3>
+                </section>
             </div>
-            
-            <div id="leftWindow">
+            <div class="row">
+            <form action="" id="inputForm">
+            <section id="selectRange" class="col-md-4">
                 <h4>SELECT RANGE:</h4>
-                FROM:<input type="text" class="datepicker" id="date1">
-                TO:<input type="text" class="datepicker" id="date2">
-                <h4>SELECT SENSOR:</h4>
-                SENSOR 1 <input type="checkbox" name="sensors" id="sen1" checked="yes">
-                SENSOR 2 <input type="checkbox" name="sensors" id="sen2" checked="yes">
-                SENSOR 3 <input type="checkbox" name="sensors" id="sen3" checked="yes">
-                
-                <h4>SELECT VIEW:</h4>
-                <form action="">
-                    <input type="radio" name="graph" value="line"> Line
-                    <input title="Coming Soon!" type="radio" name="graph" value="bar" disabled="yes" toolt> Bar
-                    <input title="Coming Soon!" type="radio" name="graph" value="hist" disabled="yes"> Histogram
-                    <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Dot
-                    <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Density Plot
-                </form>
-                <input type="button" id="myButton" value="submit">
+                <div class="form-group">
+                    <label for="date1">FROM:</label><input type="text" class="datepicker form-control" id="date1" placeholder="From Date">
+                </div>
+                <div class="form-group">                    
+                    <label for="date2">TO:</label><input type="text" class="datepicker form-control" id="date2" placeholder="To Date">
+                </div>
+            </section>
+            <section id="selectSensor" class="col-md-4">
+                 <h4>SELECT SENSOR:</h4>
+                <label for="sens1">SENSOR 1</label> <input type="checkbox" name="sensors" id="sen1" checked="yes">
+                 <label for="sens2">SENSOR 2</label> <input type="checkbox" name="sensors" id="sen2" checked="yes">
+                <label for="sens3"> SENSOR 3 </label><input type="checkbox" name="sensors" id="sen3" checked="yes">                                         
+            </section>
+            <section id="selectView" class="col-md-4">
+            <h4>SELECT VIEW:</h4>
+            <div>
+                <input type="radio" name="graph" value="line"> Line
+                <input title="Coming Soon!" type="radio" name="graph" value="hist" disabled="yes"> Histogram
+                <input title="Coming Soon!" type="radio" name="graph" value="bar" disabled="yes" toolt> Bar
             </div>
-            
-            <div id="rightWindow">
-                <div id="recordCount">Records Returned: <input type="text" id="rcrdRtrnd" value=""></input></div>
+            <div>                
+                <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Dot
+               <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Density Plot
+            </div>
+            </section> 
+        </form><!--End of Form-->
+        </div>                
+        <!--submit section-->
+        <div class="row">
+            <section id="submit" class="col-md-12">
+            <input type="submit" class="btn btn-default" id="myButton" value="Submit"></input>
+            </section>
+        </div>       
+        <div class="row">
+            <section id="bottomWindow">
+                <div id="recordCount">
+                    Returned: 
+                     <input type="text" id="rcrdRtrnd" value=""></input>
+                </div>
                 <div id="chart"></div>
                 <div id="stats"></div>
-            </div>
+            </section>
         </div>
+    </div><!--End of Outer Container-->
         <!-- Additional Bootstrap Functionality-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script
