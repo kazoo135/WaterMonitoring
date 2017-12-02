@@ -38,31 +38,44 @@
             </div>
             <div class="row">
             <form action="" id="inputForm">
-            <section id="selectRange" class="col-md-4">
-                <h4>SELECT RANGE:</h4>
+            <section id="selectRange" class="col-md-3">
+                <h4 class="uppercase">select date range:</h4>
                 <div class="form-group">
                     <label for="date1">FROM:</label><input type="text" class="datepicker form-control" id="date1" placeholder="From Date">
                 </div>
                 <div class="form-group">                    
                     <label for="date2">TO:</label><input type="text" class="datepicker form-control" id="date2" placeholder="To Date">
                 </div>
+            </section> 
+            <section id="selectDb" class="col-md-3">
+                <h4 class="uppercase">select database:</h4>
+                <div>
+                    <label for="db2">DB 2</label> <input type="checkbox" id="db2" name="databases" value="db1" checked>
+                     <label for="db3">DB 3</label> <input type="checkbox" id="db3" name="databases" value="db2" >
+                    <label for="db4">DB 4</label><input type="checkbox" id="db4" name="databases" value="db3">                                         
+                </div>
+                <div>
+                    <label for="db5">DB 5</label> <input type="checkbox" id="db5" name="databases" value="db5">
+                    <label for="db6">DB 6</label><input type="checkbox" id="db6" name="databases" value="db6">                          
+                </div>
             </section>
-            <section id="selectSensor" class="col-md-4">
-                 <h4>SELECT SENSOR:</h4>
+            <section id="selectSensor" class="col-md-3">
+                 <h4 class="uppercase">select sensors:</h4>
                 <label for="sens1">SENSOR 1</label> <input type="checkbox" name="sensors" id="sen1" checked="yes">
                  <label for="sens2">SENSOR 2</label> <input type="checkbox" name="sensors" id="sen2" checked="yes">
                 <label for="sens3"> SENSOR 3 </label><input type="checkbox" name="sensors" id="sen3" checked="yes">                                         
             </section>
-            <section id="selectView" class="col-md-4">
-            <h4>SELECT VIEW:</h4>
+
+            <section id="selectView" class="col-md-3">
+            <h4 class="uppercase">select view:</h4>
             <div>
-                <input type="radio" name="graph" value="line"> Line
-                <input title="Coming Soon!" type="radio" name="graph" value="hist" disabled="yes"> Histogram
-                <input title="Coming Soon!" type="radio" name="graph" value="bar" disabled="yes" toolt> Bar
+                <input type="radio" id="lineGraph" name="graph" value="line"><label for="lineGraph">Line</label>
+                <input title="Coming Soon!" type="radio" id="histograph" name="graph" value="hist" disabled="yes"><label for="histogrpah">Histogram</label>   
+                <input title="Coming Soon!" type="radio" id="bargraph" name="graph" value="bar" disabled="yes" toolt><label for="bargraph">Bar</label>
             </div>
             <div>                
-                <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Dot
-               <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Density Plot
+                <input title="Coming Soon!" type="radio" id="dotgraph" name="graph" value="line" disabled="yes"><label for="dotgraph">Dot</label>  
+               <input title="Coming Soon!" type="radio" id="densityPlot" name="graph" value="line" disabled="yes"><label for="densityPlot">Density Plot</label>  
             </div>
             </section> 
         </form><!--End of Form-->
@@ -75,9 +88,9 @@
         </div>       
         <div class="row">
             <section id="bottomWindow">
-                <div id="recordCount">
-                    Returned: 
-                     <input type="text" id="rcrdRtrnd" value=""></input>
+                <div id="recordCount" class="uppercase">
+                     records returned:
+                    <input type="text" id="rcrdRtrnd" value=""></input>
                 </div>
                 <div id="chart"></div>
                 <div id="stats"></div>
@@ -86,7 +99,6 @@
     </div><!--End of Outer Container-->
         <!-- Additional Bootstrap Functionality-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <!--Local js file -->        
         <script src="js/view.js"></script>

@@ -22,10 +22,14 @@
 	height:800;
 	background-color: #F9F9F7;
 	border: 1px black solid;
-}
-#recordCount{
-	width:100%;
 	text-align: center;
+}
+
+#recordCount{
+	/* width:100%; */
+	 text-align: center;
+	margin: 0px;
+	padding: 0px;
 }
 #rcrdRtrnd
 {
@@ -42,4 +46,8 @@
 
 #myButton{
 	margin-bottom: 10px; 
+}
+
+.uppercase{
+	text-transform: uppercase;
 }
