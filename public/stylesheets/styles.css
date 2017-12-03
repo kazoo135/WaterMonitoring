@@ -48,6 +48,19 @@
 	margin-bottom: 10px; 
 }
 
+/* Font Styles */
 .uppercase{
 	text-transform: uppercase;
 }
+.bold{
+	font-weight: bold; 
+}
+
+/* Form styles */
+
+#inputForm .checkbox label, #inputForm .radio label{
+	margin: 3px; 
+}
+input[type=checkbox]{
+	margin:3px ; 
+} 
