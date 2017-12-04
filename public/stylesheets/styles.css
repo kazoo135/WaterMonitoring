@@ -1,11 +1,13 @@
 .env{
 
 	background-color: darkgrey;
+	margin: 0 auto;
+	padding: 0; 
 }
 #main-container{
 	background-color: lightgray;
-	/* margin: 0 auto;
-	padding: 0px;  */
+	margin: 0 auto;
+	/* padding: 0px;  */
 }
 #header {
 	background-color: gray;
@@ -31,16 +33,16 @@
 }
 
 #bottomWindow{
-	height:800;
+	min-height:800;
+	min-width: 100%; 
 	background-color: #F9F9F7;
 	border: 1px black solid;
-	/* text-align: center; */
+	text-align: center; 
 }
-
 #recordCount{
-	/* width:100%; */
+	 width:100%; 
 	text-align: center;
-	margin: 0px;
+	margin: 0px; 
 	padding: 0px;
 }
 #rcrdRtrnd
@@ -50,6 +52,8 @@
 }
 #chart{
 	overflow: hidden;
+	/* adding min-height to avoid page shifting when content loads */
+	min-height: 400px; 
 	width: 100%;
 	text-align: center;  
 }
@@ -70,9 +74,6 @@
 }
 
 /* Form styles */
-#container form{
-
-}
 #inputForm .checkbox label, #inputForm .radio label{
 	margin: 3px; 
 }
