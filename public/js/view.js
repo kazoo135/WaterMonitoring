@@ -854,7 +854,8 @@ function initialize(){
         chart: {
           title: 'Choate Pond Temperature Sensor',
           subtitle: 'in degrees Fahrenheit'
-        },height: 500,
+		},
+		height: 500,
         backgroundColor: '#F9F9F7'
 
       };

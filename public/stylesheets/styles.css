@@ -1,10 +1,14 @@
 .env{
+
 	background-color: darkgrey;
 }
-#container{
+#main-container{
+	background-color: lightgray;
+	/* margin: 0 auto;
+	padding: 0px;  */
 }
 #header {
-	background-color: grey;
+	background-color: gray;
 	color: white;
 	text-align: center;
 }
@@ -15,19 +19,27 @@
 #topWindow {
 	background-color: #F9F9F7;
 	color:black;
-	border: 1px black solid;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+#submitInput{
+	background-color: #F9F9F7;
+	border-right: 1px solid black;
+	border-left: 1px solid black;	
 }
 
 #bottomWindow{
 	height:800;
 	background-color: #F9F9F7;
 	border: 1px black solid;
-	text-align: center;
+	/* text-align: center; */
 }
 
 #recordCount{
 	/* width:100%; */
-	 text-align: center;
+	text-align: center;
 	margin: 0px;
 	padding: 0px;
 }
@@ -39,9 +51,10 @@
 #chart{
 	overflow: hidden;
 	width: 100%;
+	text-align: center;  
 }
 #stats{
-	width: 100%;
+	width: 100%; 
 }
 
 #myButton{
@@ -57,7 +70,9 @@
 }
 
 /* Form styles */
+#container form{
 
+}
 #inputForm .checkbox label, #inputForm .radio label{
 	margin: 3px; 
 }

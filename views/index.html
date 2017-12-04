@@ -30,74 +30,74 @@
     </head>
     
     <body class="env">
-        <div id="container" class="container">
+        <div id="main-container" class="container">
             <div class="row">
                 <section id="header">
                     <h3>Water Sensing Analyzer</h3>
                 </section>
-            </div>
-            <div class="row">
-            <form action="" method=""  id="inputForm">
-            <section id="selectRange" class="col-md-3">
-                <h4 class="uppercase bold">select date range:</h4>
-                <div class="form-group">
+         </div>
+        <div id="topWindow"  class="row">
+        <form action="" method=""  id="inputForm">
+        <section id="selectRange" class="col-md-3">
+             <h4 class="uppercase bold">select date range:</h4>
+            <div class="form-group">
                     <label for="date1">From:</label><input type="text" class="datepicker form-control" id="date1" placeholder="From Date">
-                </div>
-                <div class="form-group">                    
-                    <label for="date2">To:</label><input type="text" class="datepicker form-control" id="date2" placeholder="To Date">
-                </div>
-            </section> 
-            <section id="selectDb" class="col-md-3">
-                <h4 class="uppercase bold">select database:</h4>
-                <div class="checkbox">
-                    <label><input type="checkbox" id="db2" name="databases" value="db1" checked>DB 2 </label>
-                     <label><input type="checkbox" id="db3" name="databases" value="db2" >DB 3</label> 
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" id="db4" name="databases" value="db3">DB 4</label>                                
-                    <label> <input type="checkbox" id="db5" name="databases" value="db5">DB 5</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" id="db6" name="databases" value="db6"> DB 6</label>                         
-                </div>
-            </section>
-            <section id="selectSensor" class="col-md-3">
-                 <h4 class="uppercase bold">select sensors:</h4>
-                <div class="checkbox">
-                    <label><input type="checkbox" name="sensors" id="sen1" checked="yes">Sensor 1</label>
-                     <label><input type="checkbox" name="sensors" id="sen2" checked="yes">Sensor 2</label>
-                    <label><input type="checkbox" name="sensors" id="sen3" checked="yes">Sensor 3</label>                                        
-                </div> 
-            </section>
-            <section id="selectView" class="col-md-3">
-            <h4 class="uppercase bold">select view:</h4>
-            <div class="radio">
+            </div>
+             <div class="form-group">                    
+                <label for="date2">To:</label><input type="text" class="datepicker form-control" id="date2" placeholder="To Date">
+            </div>
+        </section> 
+         <section id="selectDb" class="col-md-3">
+             <h4 class="uppercase bold">select database:</h4>
+            <div class="checkbox">
+                 <label><input type="checkbox" id="db2" name="databases" value="db2" checked>DB 2 </label>
+                 <label><input type="checkbox" id="db3" name="databases" value="db3" >DB 3</label> 
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" id="db4" name="databases" value="db4">DB 4</label>                                
+                 <label> <input type="checkbox" id="db5" name="databases" value="db5">DB 5</label>
+            </div>
+             <div class="checkbox">
+                <label><input type="checkbox" id="db6" name="databases" value="db6"> DB 6</label>                         
+            </div>
+        </section>
+        <section id="selectSensor" class="col-md-3">
+                <h4 class="uppercase bold">select sensors:</h4>
+             <div class="checkbox">
+                 <label><input type="checkbox" name="sensors" id="sen1" checked="yes">Sensor 1</label>
+                    <label><input type="checkbox" name="sensors" id="sen2" checked="yes">Sensor 2</label>
+                <label><input type="checkbox" name="sensors" id="sen3" checked="yes">Sensor 3</label>                                        
+            </div> 
+        </section>
+        <section id="selectView" class="col-md-3">
+         <h4 class="uppercase bold">select view:</h4>
+        <div class="radio">
                 <label><input type="radio" id="lineGraph" name="graph" value="line">Line</label>
                 <label><input title="Coming Soon!" type="radio" id="histograph" name="graph" value="hist" disabled="yes">Histogram</label>   
-                <label> <input title="Coming Soon!" type="radio" id="bargraph" name="graph" value="bar" disabled="yes" toolt>Bar</label>
-            </div>
-            <div class="radio">                
-                <label><input title="Coming Soon!" type="radio" id="dotgraph" name="graph" value="line" disabled="yes">Dot</label>  
-                <label><input title="Coming Soon!" type="radio" id="densityPlot" name="graph" value="line" disabled="yes">Density Plot</label>  
-            </div>
-            </section> 
+            <label> <input title="Coming Soon!" type="radio" id="bargraph" name="graph" value="bar" disabled="yes" toolt>Bar</label>
+        </div>
+         <div class="radio">                
+            <label><input title="Coming Soon!" type="radio" id="dotgraph" name="graph" value="line" disabled="yes">Dot</label>  
+            <label><input title="Coming Soon!" type="radio" id="densityPlot" name="graph" value="line" disabled="yes">Density Plot</label>  
+        </div>
+         </section> 
         </form><!--End of Form-->
         </div>                
         <!--submit section-->
-        <div class="row">
+        <div class="row" id="submitInput">
             <section id="submit" class="col-md-12">
-            <input type="submit" class="btn btn-default" id="myButton" value="Submit"></input>
+            <input type="submit" class="btn btn-default" id="myButton" value="Submit"/>
             </section>
-        </div>       
-        <div class="row">
+        </div>
+        <div class="row">    
             <section id="bottomWindow">
                 <div id="recordCount" class="uppercase">
                      records returned:
-                    <input type="text" id="rcrdRtrnd" value=""></input>
+                    <input type="text" id="rcrdRtrnd" value=""/>
                 </div>
                 <div id="chart"></div>
                 <div id="stats"></div>
-            </section>
+            </section>            
         </div>
     </div><!--End of Outer Container-->
         <!-- Additional Bootstrap Functionality-->
