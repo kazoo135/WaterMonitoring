@@ -170,7 +170,7 @@ After running the `cf push` command above, you should see the following output:
     Creating app hello-node in org <my-IBM-id> / space dev as <my-IBM-id>...
     OK
 
-    Using route hello-node-${random-word}.ng.bluemix.net
+    Using route hello-node-${random-word}.ng.bluem0ix.net
     Binding hello-node-${random-word}.ng.bluemix.net to hello-node...
     OK
 
