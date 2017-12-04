@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Evironmental Sensor</title>
+        <!--jquery-->
         <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -14,7 +15,8 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
-        
+        <!-- reset stylesheet -->
+        <link rel="stylesheet" href="stylesheets/reset.css">
         <!-- Bootstrap -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">       
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -28,9 +30,28 @@
     </head>
     
     <body class="env">
-        <div id="container" class="container-fluid">
-            <div id="header">
-                <h3>Welcome To The Environmental Sensor Analysis Page</h3>
+        <div id="main-container" class="container">
+            <div class="row">
+                <section id="header">
+                    <h3>Water Sensing Analyzer</h3>
+                </section>
+         </div>
+        <div id="topWindow"  class="row">
+        <form action="" method=""  id="inputForm">
+        <section id="selectRange" class="col-md-3">
+             <h4 class="uppercase bold">select date range:</h4>
+            <div class="form-group">
+                    <label for="date1">From:</label><input type="text" class="datepicker form-control" id="date1" placeholder="From Date">
+            </div>
+             <div class="form-group">                    
+                <label for="date2">To:</label><input type="text" class="datepicker form-control" id="date2" placeholder="To Date">
+            </div>
+        </section> 
+         <section id="selectDb" class="col-md-3">
+             <h4 class="uppercase bold">select database:</h4>
+            <div class="checkbox">
+                 <label><input type="checkbox" id="db2" name="databases" value="db2" checked>DB 2 </label>
+                 <label><input type="checkbox" id="db3" name="databases" value="db3" >DB 3</label> 
             </div>
           
             <div id="leftWindow">
@@ -52,16 +73,51 @@
                 </form>
                 <input type="button" id="myButton" value="submit">
             </div>
-            
-            <div id="rightWindow">
-                <div id="recordCount">Records Returned: <input type="text" id="rcrdRtrnd" value=""></input></div>
+             <div class="checkbox">
+                <label><input type="checkbox" id="db6" name="databases" value="db6"> DB 6</label>                         
+            </div>
+        </section>
+        <section id="selectSensor" class="col-md-3">
+                <h4 class="uppercase bold">select sensors:</h4>
+             <div class="checkbox">
+                 <label><input type="checkbox" name="sensors" id="sen1" checked="yes">Sensor 1</label>
+                    <label><input type="checkbox" name="sensors" id="sen2" checked="yes">Sensor 2</label>
+                <label><input type="checkbox" name="sensors" id="sen3" checked="yes">Sensor 3</label>                                        
+            </div> 
+        </section>
+        <section id="selectView" class="col-md-3">
+         <h4 class="uppercase bold">select view:</h4>
+        <div class="radio">
+                <label><input type="radio" id="lineGraph" name="graph" value="line">Line</label>
+                <label><input title="Coming Soon!" type="radio" id="histograph" name="graph" value="hist" disabled="yes">Histogram</label>   
+            <label> <input title="Coming Soon!" type="radio" id="bargraph" name="graph" value="bar" disabled="yes" toolt>Bar</label>
+        </div>
+         <div class="radio">                
+            <label><input title="Coming Soon!" type="radio" id="dotgraph" name="graph" value="line" disabled="yes">Dot</label>  
+            <label><input title="Coming Soon!" type="radio" id="densityPlot" name="graph" value="line" disabled="yes">Density Plot</label>  
+        </div>
+         </section> 
+        </form><!--End of Form-->
+        </div>                
+        <!--submit section-->
+        <div class="row" id="submitInput">
+            <section id="submit" class="col-md-12">
+            <input type="submit" class="btn btn-primary" id="myButton" value="Submit"/>
+            </section>
+        </div>
+        <div class="row">    
+            <section id="bottomWindow">
+                <div id="recordCount" class="uppercase">
+                     records returned:
+                    <input type="text" id="rcrdRtrnd" value=""/>
+                </div>
                 <div id="chart"></div>
                 <div id="stats"></div>
-            </div>
+            </section>            
         </div>
+    </div><!--End of Outer Container-->
         <!-- Additional Bootstrap Functionality-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <!--Local js file -->        
         <script src="js/view.js"></script>

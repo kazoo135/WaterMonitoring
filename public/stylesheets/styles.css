@@ -1,36 +1,49 @@
 .env{
+
 	background-color: darkgrey;
+	margin: 0 auto;
+	padding: 0; 
 }
-#container{
+#main-container{
+	background-color: lightgray;
+	margin: 0 auto;
+	/* padding: 0px;  */
 }
 #header {
-	width: 100%;
-	margin-top:5px;
-	background-color: grey;
+	background-color: gray;
 	color: white;
-	float:left;
 	text-align: center;
 }
-
-#leftWindow {
-	float:left;
-	position: relative;
+#header h3{
+	margin: 0;
+	padding: 10px 0 10px 0;
+}
+#topWindow {
 	background-color: #F9F9F7;
 	color:black;
-	width: 40%;
-	border: 1px black solid;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
 }
 
-#rightWindow{
-	float:left;
-	width: 60%;
-	height:800;
+#submitInput{
+	background-color: #F9F9F7;
+	border-right: 1px solid black;
+	border-left: 1px solid black;	
+}
+
+#bottomWindow{
+	min-height:800;
+	min-width: 100%; 
 	background-color: #F9F9F7;
 	border: 1px black solid;
+	text-align: center; 
 }
 #recordCount{
-	width:100%;
+	 width:100%; 
 	text-align: center;
+	margin: 0px; 
+	padding: 0px;
 }
 #rcrdRtrnd
 {
@@ -39,8 +52,31 @@
 }
 #chart{
 	overflow: hidden;
+	/* adding min-height to avoid page shifting when content loads */
+	min-height: 400px; 
 	width: 100%;
+	text-align: center;  
 }
 #stats{
-	width: 100%;
+	width: 100%; 
 }
+
+#myButton{
+	margin-bottom: 10px; 
+}
+
+/* Font Styles */
+.uppercase{
+	text-transform: uppercase;
+}
+.bold{
+	font-weight: bold; 
+}
+
+/* Form styles */
+#inputForm .checkbox label, #inputForm .radio label{
+	margin: 3px; 
+}
+input[type=checkbox]{
+	margin:3px ; 
+} 
