@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "cf-deployment-tracker-client": "*",
-    "cloudant": "^1.10.0",
+    "cloudant": "1.10.0",
     "cloudant-nano": "6.7.0",
     "commander": "^2.6.0",
     "express": "^4.14.1",
@@ -17,5 +17,8 @@
   "repository": {
     "type": "git",
     "url": "https://git.ng.bluemix.net/cr14311n/EnviroSensor.git"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }
