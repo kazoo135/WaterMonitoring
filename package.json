@@ -1,9 +1,10 @@
 {
-  "name": "bluemix-hello-node",
+  "name": "EnviroSensor",
   "version": "0.0.0",
   "dependencies": {
     "cf-deployment-tracker-client": "*",
-    "cloudant": "^1.10.0",
+    "cloudant": "1.10.0",
+    "cloudant-nano": "6.7.0",
     "commander": "^2.6.0",
     "express": "^4.14.1",
     "http-post": "^0.1.1",

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+   
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,9 +53,25 @@
                  <label><input type="checkbox" id="db2" name="databases" value="db2" checked>DB 2 </label>
                  <label><input type="checkbox" id="db3" name="databases" value="db3" >DB 3</label> 
             </div>
-            <div class="checkbox">
-                <label><input type="checkbox" id="db4" name="databases" value="db4">DB 4</label>                                
-                 <label> <input type="checkbox" id="db5" name="databases" value="db5">DB 5</label>
+          
+            <div id="leftWindow">
+                <h4>SELECT RANGE:</h4>
+                FROM:<input type="text" class="datepicker" id="date1">
+                TO:<input type="text" class="datepicker" id="date2">
+                <h4>SELECT SENSOR:</h4>
+                SENSOR 1 <input type="checkbox" name="sensors" id="sen1" checked="yes">
+                SENSOR 2 <input type="checkbox" name="sensors" id="sen2" checked="yes">
+                SENSOR 3 <input type="checkbox" name="sensors" id="sen3" checked="yes">
+                
+                <h4>SELECT VIEW:</h4>
+                <form action="">
+                    <input type="radio" name="graph" value="line"> Line
+                    <input title="Coming Soon!" type="radio" name="graph" value="bar" disabled="yes" toolt> Bar
+                    <input title="Coming Soon!" type="radio" name="graph" value="hist" disabled="yes"> Histogram
+                    <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Dot
+                    <input title="Coming Soon!" type="radio" name="graph" value="line" disabled="yes"> Density Plot
+                </form>
+                <input type="button" id="myButton" value="submit">
             </div>
              <div class="checkbox">
                 <label><input type="checkbox" id="db6" name="databases" value="db6"> DB 6</label>                         
