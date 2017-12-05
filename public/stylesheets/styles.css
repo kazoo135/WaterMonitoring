@@ -1,3 +1,5 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500|Noto+Sans|Roboto');
 .env{
 
 	background-color: darkgrey;
@@ -21,10 +23,13 @@
 	padding: 0; 
 	/* color: white; */
 	text-align: center;
+
 }
 #header h3{
 	margin: 0;
 	padding: 20px 0 20px 0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.3em; 
 }
 #topWindow {
 	color:black;
@@ -41,6 +46,10 @@
 	/* border-left: 1px solid black; 
 	border-right: 1px solid black;   */
 	border-bottom: 1px solid black ;  
+	font-family: 'Montserrat', sans-serif;
+}
+#submit input{
+	font-size: 1em; 
 }
 
 #bottomWindow{
