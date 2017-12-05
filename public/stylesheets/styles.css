@@ -55,13 +55,13 @@ section h4{
 #submit input{
 	font-size: 1em; 
 }
-
+#secondary-header{
+}
 #bottomWindow{
 	min-height:800;
 	min-width: 100%; 
 	text-align: center; 
 	background-color: #F9F9F7;
-	border-radius: 12px;
 	border: 1px solid  #BDBDBD;
 }
 
@@ -69,7 +69,6 @@ section h4{
 	width:100%; 
 	margin: 0px; 
 	padding: 0px;
-
 }
 
 #recordCount p{	
@@ -79,6 +78,11 @@ section h4{
 	font-size: 1.3em;
 	padding: 0px;
 	margin: 0px; 
+	background-color: #F2F2F2;
+	border-top-right-radius: 12px;
+	border-top-left-radius: 12px;  
+	
+	
 }
 #rcrdRtrnd
 {
