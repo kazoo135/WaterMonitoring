@@ -32,13 +32,13 @@
     <body class="env light-primary-color">
         <div class="top-most dark-primary-color"></div>
             <section id="header" class="default-primary-color">
-                <h3 class="text-primary-color">Water Monitoring Analyzer</h3>
+                <h2 class="text-primary-color">Water Monitoring Analyzer</h2>
             </section>
         <div id="main-container" class="container light-primary-color">
         <div id="topWindow"  class="row light-primary-color">
         <form action="" method=""  id="inputForm">
         <section id="selectRange" class="col-md-3 light-primary-color">
-             <h4 class="uppercase bold secondary-text-color">select date range:</h4>
+             <h4 class="uppercase primary-text-color">select date range:</h4>
             <div class="form-group">
                     <label for="date1" class=" sr-only secondary-text-color">From:</label><input type="text" class="datepicker form-control" id="date1" placeholder="From Date">
             </div>
@@ -47,7 +47,7 @@
             </div>
         </section> 
          <section id="selectDb" class="col-md-3 light-primary-color">
-             <h4 class="uppercase bold secondary-text-color">select database:</h4>
+             <h4 class="uppercase primary-text-color">select database:</h4>
             <div class="checkbox">
                  <label><input type="checkbox" id="db2" name="databases" value="db2" checked>DB 2 </label>
                  <label><input type="checkbox" id="db3" name="databases" value="db3" >DB 3</label> 
@@ -61,7 +61,7 @@
             </div>
         </section>
         <section id="selectSensor" class="col-md-3">
-                <h4 class="uppercase bold secondary-text-color">select sensors:</h4>
+                <h4 class="uppercase  primary-text-color">select sensors:</h4>
              <div class="checkbox">
                  <label><input type="checkbox" name="sensors" id="sen1" checked="yes">Sensor 1</label>
                     <label><input type="checkbox" name="sensors" id="sen2" checked="yes">Sensor 2</label>
@@ -69,14 +69,16 @@
             </div> 
         </section>
         <section id="selectView" class="col-md-3">
-         <h4 class="uppercase bold secondary-text-color">select view:</h4>
+         <h4 class="uppercase primary-text-color">select view:</h4>
         <div class="radio">
             <label><input type="radio" id="lineGraph" name="graph" value="line">Line</label>
             <label><input title="Coming Soon!" type="radio" id="histograph" name="graph" value="hist" disabled="yes">Histogram</label>   
+        </div>
+        <div class="radio">
             <label> <input title="Coming Soon!" type="radio" id="bargraph" name="graph" value="bar" disabled="yes" toolt>Bar</label>
+            <label><input title="Coming Soon!" type="radio" id="dotgraph" name="graph" value="line" disabled="yes">Dot</label>  
         </div>
          <div class="radio">                
-            <label><input title="Coming Soon!" type="radio" id="dotgraph" name="graph" value="line" disabled="yes">Dot</label>  
             <label><input title="Coming Soon!" type="radio" id="densityPlot" name="graph" value="line" disabled="yes">Density Plot</label>  
         </div>
          </section> 
@@ -90,10 +92,11 @@
         </div>
         <div class="row light-primary-color divider"></div>
         <div class="row">    
-            <section id="bottomWindow" class="divider-color">
-                <div id="recordCount" class="uppercase">
-                     records returned:
-                    <input type="text" id="rcrdRtrnd" value=""/>
+            <section id="bottomWindow" >
+                <div id="recordCount" class="divider-color">
+                     <p  class="uppercase primary-text-color">records returned
+                       <br> <input type="text" id="rcrdRtrnd" value=""/>                        
+                     </p>
                 </div>
                 <div id="chart"></div>
                 <div id="stats"></div>
