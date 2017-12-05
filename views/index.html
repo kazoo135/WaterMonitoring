@@ -29,26 +29,25 @@
         
     </head>
     
-    <body class="env">
-        <div id="main-container" class="container">
-            <div class="row">
-                <section id="header">
-                    <h3>Water Sensing Analyzer</h3>
-                </section>
-         </div>
-        <div id="topWindow"  class="row">
+    <body class="env light-primary-color">
+        <div class="top-most dark-primary-color"></div>
+            <section id="header" class="default-primary-color">
+                <h3 class="text-primary-color">Water Sensing Analyzer</h3>
+            </section>
+        <div id="main-container" class="container light-primary-color">
+        <div id="topWindow"  class="row light-primary-color">
         <form action="" method=""  id="inputForm">
-        <section id="selectRange" class="col-md-3">
-             <h4 class="uppercase bold">select date range:</h4>
+        <section id="selectRange" class="col-md-3 light-primary-color">
+             <h4 class="uppercase bold secondary-text-color">select date range:</h4>
             <div class="form-group">
-                    <label for="date1">From:</label><input type="text" class="datepicker form-control" id="date1" placeholder="From Date">
+                    <label for="date1" class=" sr-only secondary-text-color">From:</label><input type="text" class="datepicker form-control" id="date1" placeholder="From Date">
             </div>
              <div class="form-group">                    
-                <label for="date2">To:</label><input type="text" class="datepicker form-control" id="date2" placeholder="To Date">
+                <label for="date2" class="secondary-text-color sr-only">To:</label><input type="text" class="datepicker form-control" id="date2" placeholder="To Date">
             </div>
         </section> 
-         <section id="selectDb" class="col-md-3">
-             <h4 class="uppercase bold">select database:</h4>
+         <section id="selectDb" class="col-md-3 light-primary-color">
+             <h4 class="uppercase bold secondary-text-color">select database:</h4>
             <div class="checkbox">
                  <label><input type="checkbox" id="db2" name="databases" value="db2" checked>DB 2 </label>
                  <label><input type="checkbox" id="db3" name="databases" value="db3" >DB 3</label> 
@@ -62,7 +61,7 @@
             </div>
         </section>
         <section id="selectSensor" class="col-md-3">
-                <h4 class="uppercase bold">select sensors:</h4>
+                <h4 class="uppercase bold secondary-text-color">select sensors:</h4>
              <div class="checkbox">
                  <label><input type="checkbox" name="sensors" id="sen1" checked="yes">Sensor 1</label>
                     <label><input type="checkbox" name="sensors" id="sen2" checked="yes">Sensor 2</label>
@@ -70,7 +69,7 @@
             </div> 
         </section>
         <section id="selectView" class="col-md-3">
-         <h4 class="uppercase bold">select view:</h4>
+         <h4 class="uppercase bold secondary-text-color">select view:</h4>
         <div class="radio">
                 <label><input type="radio" id="lineGraph" name="graph" value="line">Line</label>
                 <label><input title="Coming Soon!" type="radio" id="histograph" name="graph" value="hist" disabled="yes">Histogram</label>   
@@ -84,13 +83,14 @@
         </form><!--End of Form-->
         </div>                
         <!--submit section-->
-        <div class="row" id="submitInput">
+        <div class="row light-primary-color" id="submitInput">
             <section id="submit" class="col-md-12">
-            <input type="submit" class="btn btn-primary" id="myButton" value="Submit"/>
+                <input type="submit" class="btn accent-color text-primary-color" id="myButton" value="Submit"/>
             </section>
         </div>
+        <div class="row light-primary-color divider"></div>
         <div class="row">    
-            <section id="bottomWindow">
+            <section id="bottomWindow" class="divider-color">
                 <div id="recordCount" class="uppercase">
                      records returned:
                     <input type="text" id="rcrdRtrnd" value=""/>
