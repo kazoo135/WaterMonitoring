@@ -808,7 +808,7 @@ function initialize(){
   });
 }
 	google.charts.load('current', {'packages':['line']});
-      	google.charts.setOnLoadCallback(initialize);
+    google.charts.setOnLoadCallback(initialize);
 
     function drawChart() {
     	var count = 0;
