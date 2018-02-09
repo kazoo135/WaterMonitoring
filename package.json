@@ -18,7 +18,5 @@
     "type": "git",
     "url": "https://git.ng.bluemix.net/cr14311n/EnviroSensor.git"
   },
-  "devDependencies": {
-    "nodemon": "^1.12.1"
-  }
+  "devDependencies": {}
 }
