@@ -2,7 +2,6 @@
   "name": "EnviroSensor",
   "version": "0.0.0",
   "dependencies": {
-    "cf-deployment-tracker-client": "*",
     "cloudant": "1.10.0",
     "cloudant-nano": "6.7.0",
     "commander": "^2.6.0",

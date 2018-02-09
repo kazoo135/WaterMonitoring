@@ -1,5 +1,5 @@
 var express = require("express"),
-    app = express();
+var app = express();
 
 var port = process.env.PORT || 8080;
 var path = require('path');
@@ -35,4 +35,3 @@ cloudant.db.list(function(err, allDbs) {
 app.listen(port);
 console.log("Listening on port ", port);
 
-require("cf-deployment-tracker-client").track();
