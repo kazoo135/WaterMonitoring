@@ -808,7 +808,7 @@ function initialize(){
   });
 }
 	google.charts.load('current', {'packages':['line']});
-      	google.charts.setOnLoadCallback(initialize);
+    google.charts.setOnLoadCallback(initialize);
 
     function drawChart() {
     	var count = 0;
@@ -880,13 +880,11 @@ function initialize(){
       document.getElementById('rcrdRtrnd').value = count;
       initialize();
     }
-
+//sets the date picker date range and initializes userHightTS, userLowTS vars
 function setDateRange(){
 
 	if(testDat.rows.length > 0)
 	{
-		
-		
 		
 		for(var i = 0; i < testDat.rows.length; i++) {
 			if(highTS < testDat.rows[i].doc.payload.ts)
