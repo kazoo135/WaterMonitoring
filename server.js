@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-var path = require('path');
+
 
 //set view engine
 app.set('view engine', 'ejs');
@@ -10,7 +10,7 @@ app.set('port', process.env.PORT || 8080);
 //use packages and functions
 app.use(express.static('./public'));
 
-//routes
+//routes in use
 app.use(require('./routes/index'));
 
 
