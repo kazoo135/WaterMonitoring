@@ -1,21 +1,20 @@
-var express = require("express"),
+var express = require("express");
 var app = express();
-
-var port = process.env.PORT || 8080;
 var path = require('path');
 
-//serve static files such as css, imgs, from public folder
-app.use(express.static(__dirname + '/public'));
+//set view engine
+app.set('view engine', 'ejs');
+app.set('views', './public/views');
+app.set('port', process.env.PORT || 8080);
 
-app.get("/sayHello", function (request, response) {
-  var user_name = request.query.user_name;
-  response.end("Hello " + user_name + "!");
-});
+//use packages and functions
+app.use(express.static('./public'));
 
-app.get('/', function(request, response){
-  response.sendFile('index.html', { root:path.join(__dirname, './views') });
-});
+//routes
+app.use(require('./routes/index'));
 
+
+//connect to cloudant 
 var mydb;
 var me = '678f717f-f9aa-4988-b0fd-c5f914c84cc6-bluemix';
 var password = 'f2f0a81d7190bb8dc1d691bee2ece6ada0ff730b1c527355d49b892430fd36a6'
@@ -32,6 +31,9 @@ cloudant.db.list(function(err, allDbs) {
   console.log('All my databases: %s', allDbs.join(', '))
 });
 
-app.listen(port);
-console.log("Listening on port ", port);
+
+app.listen( app.get('port'), function(){
+  console.log("Listening on port " + app.get('port'));
+});
+
 
