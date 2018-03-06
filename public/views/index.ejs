@@ -1,119 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-   
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><%= pageTitle %></title>
-        <!--jquery-->
-        <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>       
-        
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-        crossorigin="anonymous"></script>
-        <!-- reset stylesheet -->
-        <link rel="stylesheet" href="stylesheets/reset.css">
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">       
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <link href="stylesheets/styles.css" rel="stylesheet">
-        
-        <!--Charting Scripts-->
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        
-        
-    </head>
-    
-    <body id=<%= pageId %>  class="env light-primary-color">
-        <div class="top-most dark-primary-color"></div>
-            <section id="header" class="default-primary-color">
-                <h2 class="text-primary-color">Water Monitoring Analyzer</h2>
-            </section>
-        <div id="main-container" class="container light-primary-color">
-        <div id="topWindow"  class="row light-primary-color">
-        <form action="" method=""  id="inputForm">
-        <section id="selectRange" class="col-md-3 light-primary-color">
-             <h4 class="uppercase primary-text-color">select date range:</h4>
-            <div class="form-group">
-                <label for="date1" class=" sr-only secondary-text-color">From:</label><input type="text" class="datepicker form-control" id="date1" placeholder="From Date">
-            </div>
-             <div class="form-group">                    
-            <label for="date2" class="secondary-text-color sr-only">To:</label><input type="text" class="datepicker form-control" id="date2" placeholder="To Date">
-            </div>
-        </section> 
-         <section id="selectDb" class="col-md-3 light-primary-color">
-             <h4 class="uppercase primary-text-color">select database:</h4>
-            <div class="form-group">
-                <select class="form-control" id="db-list">
-                    <option value="envdata">env data</option>
-                    <option value="envdata2" selected>envdata 2</option>
-                    <option value="envdata 3">envdata 3</option>
-                    <option value="envdata 4">envdata 4</option>
-                    <option value="envdata 5">envdata 5</option>
-                    <option value="envdata 6">envdata 6</option>
-                    <option value="envdata 7">envdata 7</option>
-                </select>
-            </div>
-        </section>
 
-        <section id="selectSensor" class="col-md-3">
-                <h4 class="uppercase  primary-text-color">select sensors:</h4>
-             <div class="checkbox">
-                 <label><input type="checkbox" name="sensors" id="sen1" checked="yes">Sensor 1</label>
-                    <label><input type="checkbox" name="sensors" id="sen2" checked="yes">Sensor 2</label>
-                <label><input type="checkbox" name="sensors" id="sen3" checked="yes">Sensor 3</label>                                        
-            </div> 
-        </section>
-        <section id="selectView" class="col-md-3">
-         <h4 class="uppercase primary-text-color">select view:</h4>
-        <div class="radio">
-            <label><input type="radio" id="lineGraph" name="graph" value="line">Line</label>
-            <label><input title="Coming Soon!" type="radio" id="histograph" name="graph" value="hist" disabled="yes">Histogram</label>   
+<head>
+    <title><%= pageTitle %></title>
+
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link href="stylesheets/bootstrap.css" rel="stylesheet">
+
+    <!--Charting Scripts-->
+    <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+    <!--Local js file -->
+    <script src="js/view.js"></script>
+
+    <style>
+        .datepicker{
+            padding: 6px;
+            width: 28%;
+            float: left;
+            border-radius: 5px;
+        }
+        #errMsg{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="app">
+    <div class="page-container">
+        <div class="header navbar">
+            <div class="header-container">
+                <ul class="nav">
+                    <li class="dropdown" style="width: 100%;text-align: center;">
+                        <h2 style="padding-top: 1%; text-shadow: 2px 2px lightgrey;">Water Monitoring Analyzer</h2>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="radio">
-            <label> <input title="Coming Soon!" type="radio" id="bargraph" name="graph" value="bar" disabled="yes" toolt>Bar</label>
-            <label><input title="Coming Soon!" type="radio" id="dotgraph" name="graph" value="line" disabled="yes">Dot</label>  
-        </div>
-         <div class="radio">                
-            <label><input title="Coming Soon!" type="radio" id="densityPlot" name="graph" value="line" disabled="yes">Density Plot</label>  
-        </div>
-         </section> 
-        </form><!--End of Form-->
-        </div>                
-        <!--submit section-->
-        <div class="row light-primary-color" id="submitInput">
-            <section id="submit" class="col-md-12">
-                <input type="submit" class="btn accent-color text-primary-color uppercase" id="myButton" value="Submit"/>
-            </section>
-        </div>
-        <div class="row light-primary-color divider"></div>
-        <div class="row">
-            <section id="secondary-header">
-                <div id="recordCount" >
-                     <p  class="uppercase primary-text-color">records returned
-                       <br> <input type="text" id="rcrdRtrnd" value="0"/>                        
-                     </p>
+
+
+        <main class="main-content bgc-grey-100">
+            <div id="mainContent">
+                <div class="row gap-20 masonry pos-r" style="position: relative; height: 741px;">
+                    <div class="masonry-item w-100" style="position: absolute; left: 0%; top: 0px;">
+                        <div class="row gap-20">
+                            <!--<form action="" method="" id="inputForm" class="row gap-20">-->
+                                <div class="col-md-3">
+                                    <div class="layers bd bgc-white p-20">
+                                        <div class="layer w-100 mB-10"><h6 class="lh-1">Select Database</h6></div>
+                                        <div class="layer w-100">
+                                            <div class="peers ai-sb fxw-nw">
+                                                <!--<div class="peer peer-greed">-->
+                                                    <!--<span id="sparklinedash">-->
+                                                        <!--<canvas width="45" height="20" style="display: inline-block; width: 45px; height: 20px; vertical-align: top;"></canvas>-->
+                                                    <!--</span>-->
+                                                <!--</div>-->
+                                                <select class="form-control formInput" id="db-list">
+                                                    <!--<option value="envdata">env data</option>-->
+                                                    <option value="envdata2" selected>envdata 2</option>
+                                                    <option value="envdata3">envdata 3</option>
+                                                    <!--<option value="envdata4">envdata 4</option>-->
+                                                    <option value="envdata5">envdata 5</option>
+                                                    <option value="envdata6">envdata 6</option>
+                                                    <!--<option value="envdata7">envdata 7</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="layers bd bgc-white p-20">
+                                        <div class="layer w-100 mB-10"><h6 class="lh-1">Select Date Range</h6></div>
+                                        <div class="layer w-100">
+                                            <div class="peers ai-sb fxw-nw">
+                                                <div class="peer">
+                                                    <input type="text" class="datepicker form-control formInput" id="date1" placeholder="From Date">
+                                                    <input style="margin-left: 2%" type="text" class="datepicker form-control formInput" id="date2" placeholder="To Date">
+                                                    <div style="clear: both;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="layers bd bgc-white p-20">
+                                        <div class="layer w-100 mB-10" style="margin-bottom: 3px!important;"><h6 class="lh-1">Select Sensors</h6></div>
+                                        <div class="layer w-100">
+                                            <div class="peers ai-sb fxw-nw">
+                                                <div class="peer">
+                                                    <label style="margin-bottom: 0"><input class="formInput" type="checkbox" name="sensors" id="sen1" checked="yes"> Sensor 1</label>
+                                                    <label style="margin-bottom: 0"><input class="formInput" type="checkbox" name="sensors" id="sen2" checked="yes"> Sensor 2</label><br>
+                                                    <label style="margin-bottom: 0"><input class="formInput" type="checkbox" name="sensors" id="sen3" checked="yes"> Sensor 3</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                <div class="layers bd bgc-white p-20">
+                                    <div class="layer w-100 mB-10" style="margin-bottom: 3px!important;"><h6 class="lh-1">Chart Type</h6></div>
+                                    <div class="layer w-100">
+                                        <div class="peers ai-sb fxw-nw">
+                                            <div class="peer">
+                                                <label style="margin-bottom: 0"><input class="formInput" type="radio" id="lineGraph" name="graph" value="line" checked> Line</label>
+                                                <label style="margin-bottom: 0"><input class="formInput" type="radio" id="histograph" name="graph" value="hist"> Histogram</label>
+                                                <label style="margin-bottom: 0"><input class="formInput" type="radio" id="bargraph" name="graph" value="bar"> Bar</label><br>
+                                                <label style="margin-bottom: 0"><input class="formInput" type="radio" id="dotgraph" name="graph" value="dot"> Dot</label>
+                                                <label style="margin-bottom: 0"><input class="formInput" type="radio" id="densityPlot" name="graph" value="area"> Density Plot</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--</form>-->
+                        </div>
+                    </div>
+
+                    <div class="masonry-item col-12" style="position: absolute; left: 0%; top: 124px;">
+                        <div class="bd bgc-white">
+                            <div class="peers fxw-nw@lg+ ai-s">
+                                <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
+                                    <div class="layers">
+                                        <div class="layer w-100 mB-10"><h6 class="lh-1"><div id="errMsg" style="color: red"></div><br>Numeber Of Records: <span id="rcrdRtrnd"></span></h6></div>
+                                        <div class="layer w-100">
+                                            <div id="chart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </div>
-        <div class="row">    
-            <section id="bottomWindow" >
-                <div id="chart"></div>
-                <div id="stats"></div>
-            </section>            
-        </div>
-    </div><!--End of Outer Container-->
-        <!-- Additional Bootstrap Functionality-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-<!--Local js file -->        
-        <script src="js/view.js"></script>
-    </body>
-    
-    </html>
-    
+            </div>
+        </main>
+    </div>
+</body>
