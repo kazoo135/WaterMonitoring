@@ -24,9 +24,10 @@ function getData(_callback) {
     var sensor1 = document.getElementById("sen1").checked;
     var sensor2 = document.getElementById("sen2").checked;
     var sensor3 = document.getElementById("sen3").checked;
+    console.log(dateInput1);
 
     $.post( "/get-data", {db: db, from: fromDate, to: toDate, sensor1: sensor1, sensor2: sensor2, sensor3: sensor3}, function(data, status) {
-        console.log("data:" + fromDate);
+        console.log("1");
         return _callback(data);
     });
 }
@@ -82,7 +83,6 @@ function drawChart(tmpData) {
 
 function loadChart() {
     $('#errMsg').html('');
-    console.log("here");
     getData(function(tmpData) {
         if (tmpData['msg'] == ""){
             console.log(tmpData);

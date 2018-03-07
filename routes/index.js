@@ -12,9 +12,9 @@ var cloudant = Cloudant({account:username, password:password});
 
 Cloudant({url:dbUrl, username:username, password:password}, function(er, cloudant, reply) {
     if (er)throw er;
-    // console.log('Connected with username: %s', reply.userCtx.name)
+     console.log('Connected with username: %s', reply.userCtx.name)
 })
-
+console.log(cloudant);
 
 var router = express.Router();
 router.use(bodyParser.urlencoded({extended: true}));
@@ -36,10 +36,11 @@ router.post('/get-data', function(req, res){
     var data = new Array();
 
     db = cloudant.db.use(dbname);
+    console.log(dbname);
     var sql = {
         "selector": {
             "payload.ts": {
-                "$gte": 0,//from,
+                "$gte": 0//,from,
             //     "$and": [
             //         {"$lte": 1500569910220,}//to}
             //     ]
