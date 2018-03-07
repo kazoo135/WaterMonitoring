@@ -83,14 +83,12 @@ function plotMaxTemp(tmpData)
 {
     var td = new Array();
     for(var i = 0; i < tmpData.length; i++){
+        if(!realitycheck(tmpData[i][2]))continue;
         var d = new Date(tmpData[i][0]);
         var sd = d.getMonth() + "/" + d.getDate() + "/" + d.getFullYear();
         var fd = findDate(td, sd);
-        if(fd > -999){
-            //console.log(fd);
+        if(fd > -999)
             td[fd] = [sd, compareTemp(td[fd][1], tmpData[i][2])];
-        //console.log(td[fd]);
-    }
         else
             td.push([sd, tmpData[i][2]])
     }
@@ -159,4 +157,11 @@ function compareTemp(t1, t2) {
     if(t1 > t2)
         return t1;
     return t2;
+}
+
+function realitycheck(t)
+{
+    if(t < -100 || t > 150)
+        return false;
+    return true;
 }
