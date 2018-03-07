@@ -14,7 +14,6 @@ Cloudant({url:dbUrl, username:username, password:password}, function(er, cloudan
     if (er)throw er;
      console.log('Connected with username: %s', reply.userCtx.name)
 })
-console.log(cloudant);
 
 var router = express.Router();
 router.use(bodyParser.urlencoded({extended: true}));
@@ -36,7 +35,6 @@ router.post('/get-data', function(req, res){
     var data = new Array();
 
     db = cloudant.db.use(dbname);
-    console.log(dbname);
     var sql = {
         "selector": {
             "payload.ts": {
