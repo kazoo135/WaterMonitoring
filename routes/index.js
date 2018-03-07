@@ -1,4 +1,4 @@
-var dotenv = require('dotenv').config();
+var dotenv = require('dotenv').config({path: '.env.default'});
 var Cloudant = require('cloudant');
 var express = require('express');
 var bodyParser = require('body-parser');
