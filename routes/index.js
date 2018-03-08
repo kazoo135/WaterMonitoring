@@ -71,7 +71,7 @@ router.post('/get-data', function(req, res){
                 ){
                     var row = new Array();
                     row.push(result.docs[i].payload.ts);
-                    row.push(result.docs[i].payload.s[0].temp);
+                    //row.push(result.docs[i].payload.s[0].temp);
                     if(sensor1 == 'true')row.push(result.docs[i].payload.s[1].temp);
                     if(sensor2 == 'true')row.push(result.docs[i].payload.s[2].temp);
                     if(sensor3 == 'true')row.push(result.docs[i].payload.s[3].temp);
