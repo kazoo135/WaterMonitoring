@@ -32,17 +32,20 @@ function loadChart() {
             //google.charts.setOnLoadCallback(function(){drawChart(tmpData['data']);});
             google.charts.setOnLoadCallback(function() {
                 switch(analysis) {
+                    case "maxmin":
+                        plotMaxTemp(tmpData['data']);
+                        break;
                     case "avg":
                         plotAvg(tmpData['data']);
                         break;
                     case "dtr":
                         plotDTR(tmpData['data']);
                         break;
-                    case "cdd":
+                    /*case "cdd":
                         plotCDD(tmpData['data']);
-                        break;
+                        break;*/
                     default:
-                        plotMaxTemp(tmpData['data']);
+                        liveData(tempData['data']);
                 }
             });
         }else {

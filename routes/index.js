@@ -33,16 +33,14 @@ router.post('/get-data', function(req, res){
     var sensor2 = req.body.sensor2;
     var sensor3 = req.body.sensor3;
     var data = new Array();
-
+    console.log(from, to);
     db = cloudant.db.use(dbname);
     var sql = {
         "selector": {
             "payload.ts": {
-                "$gte": 0//,from,
-            //     "$and": [
-            //         {"$lte": 1500569910220,}//to}
-            //     ]
-            },
+                "$gte": Number(from),
+                "$lte": Number(to)
+             },
             "_id": {
                 "$gt": "0"
             }
@@ -55,6 +53,7 @@ router.post('/get-data', function(req, res){
         //     "payload.ts"
         // ]
     };
+    console.log(sql);
     db.find(sql, function(er, result) {
         if(er){throw er;}
 
