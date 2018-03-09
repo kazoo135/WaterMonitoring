@@ -23,11 +23,12 @@ function getData(_callback) {
 
 function loadChart() {
     $('#errMsg').html('');
+    var analysis = document.getElementById('analysis-list').value;
     getData(function(tmpData) {
         if (tmpData['msg'] == ""){
             //console.log(tmpData);
             google.charts.load('current', {packages: ['line']});
-            google.charts.load('current', {'packages':['table']});
+            //google.charts.load('current', {'packages':['table']});
             //google.charts.setOnLoadCallback(function(){drawChart(tmpData['data']);});
             google.charts.setOnLoadCallback(function(){plotMaxTemp(tmpData['data']);});
         }else {
