@@ -1,6 +1,12 @@
 $(function(){
     setDateRange();
     loadChart();
+    $(function(){
+        $('#analysis-list').change(function() {
+            changeDates();
+            loadChart();
+        });
+    });
     $('.formInput').change(function() {
         loadChart();
     });
@@ -120,4 +126,24 @@ function draw(data, count, title)
     //table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
     chart.draw(data, google.charts.Line.convertOptions(options));
     $('#rcrdRtrnd').html(count);
+}
+
+function changeDates(){
+    var analysis = document.getElementById('analysis-list').options[document.getElementById('analysis-list').selectedIndex].value;
+    var t1 = new Date(), t2 = new Date();
+    var today = new Date();
+    switch(analysis) {
+        case "live":
+            t1.setDate(today.getDate() -7);
+            break;
+        default:
+            t1.setDate(1);
+            t1.setMonth(0);
+            t1.setFullYear(today.getFullYear() - 1);
+            t2.setDate(31);
+            t2.setMonth(11);
+            t2.setFullYear(today.getFullYear() - 1);
+    }
+    document.getElementById("date1").value = t1.getMonth()+1 + "/" + t1.getDate() + "/" + t1.getFullYear();
+    document.getElementById("date2").value = t2.getMonth()+1 + "/" + t2.getDate() + "/" + t2.getFullYear();
 }

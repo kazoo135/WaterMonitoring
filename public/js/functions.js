@@ -50,6 +50,8 @@ function loadChart() {
             });
         }else {
             $('#errMsg').html(tmpData['msg']);
+            $('#rcrdRtrnd').html('');
+            $('#chart').html('');
         }
 
     });
