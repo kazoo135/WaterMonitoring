@@ -21,7 +21,6 @@ function plotMaxTemp(tmpData)
             td.push([sd, tmpData[i][1], tmpData[i][1]]);
     }
     //console.log(td);
-    var count = td.length;
     var data = new google.visualization.DataTable();
     data.addColumn('datetime', 'DateTime');
     data.addColumn('number', 'Daily Tmax');
@@ -78,7 +77,6 @@ function plotDTR(tmpData)
             td.push([sd, tmpData[i][1], tmpData[i][1]]);
     }
     //console.log(td);
-    var count = td.length;
     var data = new google.visualization.DataTable();
     data.addColumn('datetime', 'DateTime');
     data.addColumn('number', 'DTR');
@@ -91,31 +89,16 @@ function plotDTR(tmpData)
     draw(data, td.length, 'Choate Pond Temperature Sensor Daily Temperature Range');
 }
 
-//function to find if a date exists in an array and return its index.
-function findDate(array, item) {
-    for(var m=0; m < array.length; m++)
-        if(array[m][0] == item)
-            return m;
-    return -999;
-}
-
-//function to return the largest of 2 temps
-function compareTemp(t1, t2, w) {
-    if(w == 0) { //find high temp
-        if(t1 > t2)
-            return t1;
-        return t2;
-    }//else find low temp
-    if(t1 < t2)
-        return t1;
-    return t2;
-}
-
-//function to convert Fahrenheit to Celsius
-function celsuis(Ftemp)
+function plotLive(tmpData)
 {
-    Ctemp = (Ftemp-32) * (5/9);
-    return Ctemp;
+    var count = tmpData.length;
+    var data = new google.visualization.DataTable();
+    data.addColumn('datetime', 'DateTime');
+    data.addColumn('number', 'Sensor 2');
+
+    for(var i = 0; i < tmpData.length; i++)
+        data.addRow([new Date(tmpData[i][0]), tmpData[i][1]]);
+    draw(data, tmpData.length, 'Choate Pond Temperature Sensor');
 }
 
 //function to plot the given data

@@ -33,7 +33,6 @@ router.post('/get-data', function(req, res){
     var sensor2 = req.body.sensor2;
     var sensor3 = req.body.sensor3;
     var data = new Array();
-    console.log(from, to);
     db = cloudant.db.use(dbname);
     var sql = {
         "selector": {
@@ -53,7 +52,6 @@ router.post('/get-data', function(req, res){
         //     "payload.ts"
         // ]
     };
-    console.log(sql);
     db.find(sql, function(er, result) {
         if(er){throw er;}
 

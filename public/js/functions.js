@@ -45,7 +45,7 @@ function loadChart() {
                         plotCDD(tmpData['data']);
                         break;*/
                     default:
-                        liveData(tempData['data']);
+                        plotLive(tmpData['data']);
                 }
             });
         }else {
@@ -68,4 +68,31 @@ function realitycheck(t)
     if(t < -100 || t > 150)
         return false;
     return true;
+}
+
+//function to find if a date exists in an array and return its index.
+function findDate(array, item) {
+    for(var m=0; m < array.length; m++)
+        if(array[m][0] == item)
+            return m;
+    return -999;
+}
+
+//function to return the largest of 2 temps
+function compareTemp(t1, t2, w) {
+    if(w == 0) { //find high temp
+        if(t1 > t2)
+            return t1;
+        return t2;
+    }//else find low temp
+    if(t1 < t2)
+        return t1;
+    return t2;
+}
+
+//function to convert Fahrenheit to Celsius
+function celsuis(Ftemp)
+{
+    Ctemp = (Ftemp-32) * (5/9);
+    return Ctemp;
 }
