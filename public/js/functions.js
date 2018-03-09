@@ -23,14 +23,28 @@ function getData(_callback) {
 
 function loadChart() {
     $('#errMsg').html('');
-    var analysis = document.getElementById('analysis-list').value;
+    var analysis = document.getElementById('analysis-list').options[document.getElementById('analysis-list').selectedIndex].value;
     getData(function(tmpData) {
         if (tmpData['msg'] == ""){
             //console.log(tmpData);
             google.charts.load('current', {packages: ['line']});
             //google.charts.load('current', {'packages':['table']});
             //google.charts.setOnLoadCallback(function(){drawChart(tmpData['data']);});
-            google.charts.setOnLoadCallback(function(){plotMaxTemp(tmpData['data']);});
+            google.charts.setOnLoadCallback(function() {
+                switch(analysis) {
+                    case "avg":
+                        plotAvg(tmpData['data']);
+                        break;
+                    case "dtr":
+                        plotDTR(tmpData['data']);
+                        break;
+                    case "cdd":
+                        plotCDD(tmpData['data']);
+                        break;
+                    default:
+                        plotMaxTemp(tmpData['data']);
+                }
+            });
         }else {
             $('#errMsg').html(tmpData['msg']);
         }
