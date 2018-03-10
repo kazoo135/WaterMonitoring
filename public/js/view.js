@@ -32,7 +32,6 @@ function getData(_callback) {
 // funtion to draw the chart
 function drawChart(tmpData) {
     var count = tmpData.length;
-
     var data = new google.visualization.DataTable();
     data.addColumn('datetime', 'DateTime');
     data.addColumn('number', 'Outside Temp');
