@@ -1,4 +1,4 @@
-var dotenv = require('dotenv').config();
+var dotenv = require('dotenv').config({path: '.env.default'});
 var Cloudant = require('cloudant');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -12,9 +12,8 @@ var cloudant = Cloudant({account:username, password:password});
 
 Cloudant({url:dbUrl, username:username, password:password}, function(er, cloudant, reply) {
     if (er)throw er;
-    // console.log('Connected with username: %s', reply.userCtx.name)
+     console.log('Connected with username: %s', reply.userCtx.name)
 })
-
 
 var router = express.Router();
 router.use(bodyParser.urlencoded({extended: true}));
@@ -34,16 +33,13 @@ router.post('/get-data', function(req, res){
     var sensor2 = req.body.sensor2;
     var sensor3 = req.body.sensor3;
     var data = new Array();
-
     db = cloudant.db.use(dbname);
     var sql = {
         "selector": {
             "payload.ts": {
-                "$gte": 0,//from,
-            //     "$and": [
-            //         {"$lte": 1500569910220,}//to}
-            //     ]
-            },
+                "$gte": Number(from),
+                "$lte": Number(to)
+             },
             "_id": {
                 "$gt": "0"
             }
@@ -72,7 +68,7 @@ router.post('/get-data', function(req, res){
                 ){
                     var row = new Array();
                     row.push(result.docs[i].payload.ts);
-                    row.push(result.docs[i].payload.s[0].temp);
+                    //row.push(result.docs[i].payload.s[0].temp);
                     if(sensor1 == 'true')row.push(result.docs[i].payload.s[1].temp);
                     if(sensor2 == 'true')row.push(result.docs[i].payload.s[2].temp);
                     if(sensor3 == 'true')row.push(result.docs[i].payload.s[3].temp);

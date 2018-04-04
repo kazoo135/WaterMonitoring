@@ -12,12 +12,12 @@
     <link href="/stylesheets/bootstrap.css" rel="stylesheet">
 
     <!--Charting Scripts-->
-    <!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
-    <!--Local js file -->
-    <script src="js/view.js"></script>
+    <!--Local js files -->
+    <script src="js/functions.js"></script>
+    <script src="js/analyses.js"></script>
 
     <style>
         .datepicker{
@@ -50,31 +50,47 @@
                 <div class="row gap-20 masonry pos-r" style="position: relative; height: 741px;">
                     <div class="masonry-item w-100" style="position: absolute; left: 0%; top: 0px;">
                         <div class="row gap-20">
-                            <!--<form action="" method="" id="inputForm" class="row gap-20">-->
-                                <div class="col-md-3">
-                                    <div class="layers bd bgc-white p-20">
-                                        <div class="layer w-100 mB-10"><h6 class="lh-1">Select Database</h6></div>
+                            <div class="col-md-4">
+                                <div class="layers bd bgc-white p-20">
+                                    <div class="layer w-100 mB-10"><h6 class="lh-1">Select Analysis</h6></div>
                                         <div class="layer w-100">
                                             <div class="peers ai-sb fxw-nw">
-                                                <!--<div class="peer peer-greed">-->
-                                                    <!--<span id="sparklinedash">-->
-                                                        <!--<canvas width="45" height="20" style="display: inline-block; width: 45px; height: 20px; vertical-align: top;"></canvas>-->
-                                                    <!--</span>-->
-                                                <!--</div>-->
-                                                <select class="form-control formInput" id="db-list">
-                                                    <!--<option value="envdata">env data</option>-->
-                                                    <option value="envdata2" selected>envdata 2</option>
-                                                    <option value="envdata3">envdata 3</option>
-                                                    <!--<option value="envdata4">envdata 4</option>-->
-                                                    <option value="envdata5">envdata 5</option>
-                                                    <option value="envdata6">envdata 6</option>
-                                                    <!--<option value="envdata7">envdata 7</option>-->
+                                                <select class="form-control" id="analysis-list">
+                                                    <option value="maxmin">Daily Tmax/Tmin</option>
+                                                    <option value="avg">Daily Average</option>
+                                                    <option value="dtr">Daily Temperature Range (DTR)</option>
+                                                    <!--<option value="cdd">Cumulative Degree Days</option>-->
+                                                    <option value="live" selected>Current Data Feed</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
+                                </div>            
+                            <!--<form action="" method="" id="inputForm" class="row gap-20">-->
+                                <!--<div class="col-md-3">
+                                    <!--<div class="layers bd bgc-white p-20">
+                                        <div class="layer w-100 mB-10"><h6 class="lh-1">Select Database</h6></div>
+                                        <div class="layer w-100">
+                                            <div class="peers ai-sb fxw-nw">
+                                                <!--<div class="peer peer-greed">
+                                                    <span id="sparklinedash">
+                                                        <canvas width="45" height="20" style="display: inline-block; width: 45px; height: 20px; vertical-align: top;"></canvas>
+                                                    </span>
+                                                </div>
+                                                <select class="form-control formInput" id="db-list">
+                                                    <!--<option value="envdata">env data</option>
+                                                    <option value="envdata2" selected>envdata 2</option>
+                                                    <option value="envdata3">envdata 3</option>
+                                                    <!--<option value="envdata4">envdata 4</option>
+                                                    <option value="envdata5">envdata 5</option>
+                                                    <option value="envdata6">envdata 6</option>
+                                                    <!--<option value="envdata7">envdata 7</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="col-md-4">
                                     <div class="layers bd bgc-white p-20">
                                         <div class="layer w-100 mB-10"><h6 class="lh-1">Select Date Range</h6></div>
                                         <div class="layer w-100">
@@ -88,9 +104,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="layers bd bgc-white p-20">
-                                        <div class="layer w-100 mB-10" style="margin-bottom: 3px!important;"><h6 class="lh-1">Select Sensors</h6></div>
+                                        <div class="layer w-100 mB-10" style="margin-bottom: 3px!important;"><h6 class="lh-1">Select Locations</h6></div>
                                         <div class="layer w-100">
                                             <div class="peers ai-sb fxw-nw">
                                                 <div class="peer">
@@ -103,7 +119,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                <div class="layers bd bgc-white p-20">
+                                <!---<div class="layers bd bgc-white p-20">
                                     <div class="layer w-100 mB-10" style="margin-bottom: 3px!important;"><h6 class="lh-1">Chart Type</h6></div>
                                     <div class="layer w-100">
                                         <div class="peers ai-sb fxw-nw">
@@ -116,7 +132,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                             <!--</form>-->
                         </div>
@@ -127,8 +143,9 @@
                             <div class="peers fxw-nw@lg+ ai-s">
                                 <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
                                     <div class="layers">
-                                        <div class="layer w-100 mB-10"><h6 class="lh-1"><div id="errMsg" style="color: red"></div><br>Numeber Of Records: <span id="rcrdRtrnd"></span></h6></div>
+                                        <div class="layer w-100 mB-10"><h6 class="lh-1"><div id="errMsg" style="color: red"></div><br>Number Of Records: <span id="rcrdRtrnd"></span></h6></div>
                                         <div class="layer w-100">
+                                            <!--<div id="table" style="height: 100%"></div>-->
                                             <div id="chart"></div>
                                         </div>
                                     </div>

@@ -4,8 +4,7 @@ var app = express();
 //set view engine
 app.set('view engine', 'ejs');
 app.set('views', './public/views');
-app.set('port', 8080);
-// app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 8080);
 
 //use packages and functions
 app.use(express.static('./public'));
