@@ -26,7 +26,7 @@ function plotMaxTemp(tmpData)
         else
             td.push([sd, tmpData[i][1], tmpData[i][1]]);
     }
-    //console.log(td);
+
     var data = new google.visualization.DataTable();
     data.addColumn('datetime', 'DateTime');
     data.addColumn('number', 'Daily Tmax');
@@ -98,9 +98,10 @@ function plotDTR(tmpData)
 function plotLive(tmpData)
 {
     var count = tmpData.length;
+    //console.log(count);
     var data = new google.visualization.DataTable();
     data.addColumn('datetime', 'DateTime');
-    data.addColumn('number', 'Sensor 2');
+    data.addColumn('number', 'Temperature');
 
     for(var i = 0; i < tmpData.length; i++)
         data.addRow([new Date(tmpData[i][0]), tmpData[i][1]]);
@@ -139,10 +140,10 @@ function changeDates(){
         default:
             t1.setDate(1);
             t1.setMonth(0);
-            t1.setFullYear(today.getFullYear() - 1);
+            t1.setFullYear('2016');
             t2.setDate(31);
             t2.setMonth(11);
-            t2.setFullYear(today.getFullYear() - 1);
+            t2.setFullYear('2016');
     }
     document.getElementById("date1").value = t1.getMonth()+1 + "/" + t1.getDate() + "/" + t1.getFullYear();
     document.getElementById("date2").value = t2.getMonth()+1 + "/" + t2.getDate() + "/" + t2.getFullYear();

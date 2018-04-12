@@ -2,7 +2,7 @@
 function getData(_callback) {
     /*var e = document.getElementById("db-list");
     var db = e.options[e.selectedIndex].value;*/
-    var db = "envdata2";
+    var db = "simulationdb";
 
     var dateInput1 = document.getElementById('date1').value;
     var dateInput2 = document.getElementById('date2').value;
@@ -57,11 +57,22 @@ function loadChart() {
     });
 }
 
+//function to convert date from utc to mm/dd/yyyy format
+function formatDate(date) {
+    var y, m, d;
+    y = date.getFullYear();
+    m = date.getMonth();
+    d = date.getDate();
+    return m+'/'+d+'/'+y;
+}
+
 // function to set date picker range to last week
 function setDateRange(){
     $('.datepicker').datepicker({})
-    $('#date1').datepicker("setDate", new Date(new Date() - (7 * 24 * 60 * 60 * 1000)));
-    $('#date2').datepicker("setDate", new Date());
+    /*$('#date1').datepicker("setDate", new Date(new Date() - (7 * 24 * 60 * 60 * 1000)));
+    $('#date2').datepicker("setDate", new Date());*/
+    $('#date1').datepicker("setDate", new Date('11/01/2017'));
+    $('#date2').datepicker("setDate", new Date('11/02/2017'));
 }
 
 //function to make sure a temperature makes sense
