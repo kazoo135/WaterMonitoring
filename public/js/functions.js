@@ -41,9 +41,9 @@ function loadChart() {
                     case "dtr":
                         plotDTR(tmpData['data']);
                         break;
-                    /*case "cdd":
+                    case "cdd":
                         plotCDD(tmpData['data']);
-                        break;*/
+                        break;
                     default:
                         plotLive(tmpData['data']);
                 }

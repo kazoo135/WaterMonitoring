@@ -37,7 +37,7 @@ function plotMaxTemp(tmpData)
         data.addRow(td[i]);
     }
 
-    draw(data, td.length, 'Choate Pond Temperature Sensor Daily Max/Min Temp');
+    draw(data, td.length, 'Choate Pond Temperature Sensor Daily Max/Min Temp','Day');
 }
 
 function plotAvg(tmpData)
@@ -66,7 +66,7 @@ function plotAvg(tmpData)
         data.addRow([td[i][0], td[i][1]]);
     }
 
-    draw(data, td.length, 'Choate Pond Temperature Sensor Daily Average Temp');
+    draw(data, td.length, 'Choate Pond Temperature Sensor Daily Average Temp','Day');
 }
 
 function plotDTR(tmpData)
@@ -92,13 +92,47 @@ function plotDTR(tmpData)
         data.addRow([td[i][0], td[i][1]-td[i][2]]);
     }
 
-    draw(data, td.length, 'Choate Pond Temperature Sensor Daily Temperature Range');
+    draw(data, td.length, 'Choate Pond Temperature Sensor Daily Temperature Range','Day');
+}
+
+function plotCDD(tmpData)
+{
+    var T0 = 10;
+    var td = new Array(); //an array of temperature data comtaining: date as string, daily high, daily low
+    for(var i = 0; i < tmpData.length; i++){
+        if(!realitycheck(tmpData[i][1]))continue;
+        var d = new Date(tmpData[i][0]);
+        var sd = d.toDateString();
+        var fd = findDate(td, sd);
+        if(fd > -999)
+            td[fd] = [sd, compareTemp(td[fd][1], tmpData[i][1], 0), compareTemp(td[fd][2], tmpData[i][1], 1)];
+        else
+            td.push([sd, tmpData[i][1], tmpData[i][1]]);
+    }
+    for(var i = 0; i < td.length; i++) {
+        td[i][0] = new Date(td[i][0]);
+        td[i][1] = (td[i][1]+td[i][2])/2 - T0;
+        if(td[i][1]<0)
+            td[i][1] = 0;
+    }
+    var monthlySum = [0,0,0,0,0,0,0,0,0,0,0,0];
+    for(var i = 0; i < td.length; i++) { //for every month in our year, calculate cumulative degree days
+        var m = td[i][0].getMonth();
+        
+        monthlySum[m] = monthlySum[m]+td[i][1];
+    }
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'Month');
+    data.addColumn('number', 'CDD');
+
+    for(var i=0; i<monthlySum.length; i++)
+        data.addRow([i+1, monthlySum[i]]);
+
+    draw(data, monthlySum.length, 'Choate Pond Temperature Sensor Cumulative Degree Days', 'Month');
 }
 
 function plotLive(tmpData)
 {
-    var count = tmpData.length;
-    //console.log(count);
     var data = new google.visualization.DataTable();
     data.addColumn('datetime', 'DateTime');
     data.addColumn('number', 'Temperature');
@@ -109,11 +143,11 @@ function plotLive(tmpData)
 }
 
 //function to plot the given data
-function draw(data, count, title)
+function draw(data, count, title, xaxis)
 {
     var options = {
-        hAxis: {title: 'Day'},
-        vAxis: {title: "Temperature (°Fahrenheit)"},
+        hAxis: {title: xaxis},
+        vAxis: {title: "Temperature (°Celsius)"},
         backgroundColor: '#F9F9F7',
         is3D: true,
         title: title,
@@ -138,11 +172,11 @@ function changeDates(){
             t1.setDate(today.getDate() -7);
             break;
         default:
-            t1.setDate(1);
-            t1.setMonth(0);
+            t1.setDate('1');
+            t1.setMonth('0');
             t1.setFullYear('2016');
-            t2.setDate(31);
-            t2.setMonth(11);
+            t2.setDate('30');
+            t2.setMonth('11');
             t2.setFullYear('2016');
     }
     document.getElementById("date1").value = t1.getMonth()+1 + "/" + t1.getDate() + "/" + t1.getFullYear();
