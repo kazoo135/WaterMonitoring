@@ -95,7 +95,7 @@ router.post('/get-data', function(req, res){
                 ){
                     var row;
                     var dt = convertDateTime(result.docs[i].date, result.docs[i].hour_min);
-                    if(dt >= from && dt <= to) {
+                    if(dt >= from && dt < to) {
                         row = new Array();
                         row.push(dt);
                         row.push(Number(result.docs[i].locations[0].temp));
@@ -103,6 +103,7 @@ router.post('/get-data', function(req, res){
                     }
                 }
             }
+            data.sort(function(a,b){return a[0]-b[0]});
             //console.log(data.length);
             if (data.length > 0){
                 res.json({
@@ -128,7 +129,9 @@ router.post('/get-data', function(req, res){
 function convertDateTime(d,t){
     var h, m;
     var t1 = t.toString();
-    if(t1.length == 3)//hour is one digit
+    if(t1.length < 3) //hour is 0
+        h = "0";
+    else if(t1.length == 3)//hour is one digit
         h = t1.slice(0, 1);
     else //otherwise hour is 2 digits
         h = t1.slice(0, 2);

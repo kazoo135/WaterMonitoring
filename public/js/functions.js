@@ -28,7 +28,7 @@ function loadChart() {
         if (tmpData['msg'] == ""){
             //console.log(tmpData);
             google.charts.load('current', {packages: ['line']});
-            //google.charts.load('current', {'packages':['table']});
+            google.charts.load('current', {'packages':['table']});
             //google.charts.setOnLoadCallback(function(){drawChart(tmpData['data']);});
             google.charts.setOnLoadCallback(function() {
                 switch(analysis) {
