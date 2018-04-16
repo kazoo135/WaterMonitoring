@@ -66,6 +66,30 @@ function loadChart() {
     });
 }
 
+function exportData() {
+    getData(function(tmpData) {
+        if (tmpData['msg'] == ""){
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "datetime,water_tmp" + "\r\n";
+            tmpData['data'].forEach(function(rowArray){
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+            });
+            var encodedUri = encodeURI(csvContent);
+            //window.open(encodedUri);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "tempData.csv");
+            document.body.appendChild(link);
+            link.click();
+        }else {
+            $('#errMsg').html(tmpData['msg']);
+            $('#rcrdRtrnd').html('');
+            $('#chart').html('');
+        }
+    });
+}
+
 //function to convert date from utc to mm/dd/yyyy format
 function formatDate(date) {
     var y, m, d;

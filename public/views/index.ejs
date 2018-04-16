@@ -32,6 +32,11 @@
         .hidden{
             display: none;
         }
+        #download button {
+            background-color: #e7e7e7;
+            border: 2px #9b9999 solid;
+            border-radius: 2px;
+        }
     </style>
 </head>
 
@@ -165,6 +170,7 @@
                                         <div class="layer w-100">
                                             
                                             <div id="chart"></div>
+                                            <div id="download"><button onclick="exportData();" title="Download Data as CSV">Download Data</button></div>
                                         </div>
                                     </div>
                                 </div>
