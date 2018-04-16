@@ -29,6 +29,9 @@
         #errMsg{
             text-align: center;
         }
+        .hidden{
+            display: none;
+        }
     </style>
 </head>
 
@@ -95,17 +98,32 @@
                                         <div class="layer w-100 mB-10"><h6 class="lh-1">Select Date Range</h6></div>
                                         <div class="layer w-100">
                                             <div class="peers ai-sb fxw-nw">
-                                                <div class="peer">
+                                                <div id="dateRange" class="peer">
                                                     <input type="text" class="datepicker form-control formInput" id="date1" placeholder="From Date">
                                                     <input style="margin-left: 2%" type="text" class="datepicker form-control formInput" id="date2" placeholder="To Date">
                                                     <div style="clear: both;"></div>
+                                                </div>
+                                                <div id="yearRange" class="peer hidden">
+                                                    <select class="form-control formInput" id="year-list">
+                                                        <option value="2015">2015</option>
+                                                        <option value="2016" selected>2016</option>
+                                                        <option value="2017">2017</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="layers bd bgc-white p-20">
+                                    <div class="layers bd bgc-white p-20 hidden" id="selectT0">
+                                        <div class="layer w-100 mB-10" style="margin-bottom: 3px!important;"><h6 class="lh-1">Select DD Base (°C)</h6></div>
+                                        <div class="layer w-100">
+                                            <div class="peers ai-sb fxw-nw">
+                                                <div class="peer">
+                                                    <input class="formInput" type="number" name="T0" id="T0" value="10" min="0" max="50">
+                                                </div>
+                                            </div>
+                                        </div>
                                         <!--<div class="layer w-100 mB-10" style="margin-bottom: 3px!important;"><h6 class="lh-1">Select Locations</h6></div>
                                         <div class="layer w-100">
                                             <div class="peers ai-sb fxw-nw">

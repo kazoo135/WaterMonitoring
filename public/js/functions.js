@@ -2,12 +2,21 @@
 function getData(_callback) {
     /*var e = document.getElementById("db-list");
     var db = e.options[e.selectedIndex].value;*/
+    var analysis = document.getElementById('analysis-list').options[document.getElementById('analysis-list').selectedIndex].value;
     var db = "simulationdb";
 
-    var dateInput1 = document.getElementById('date1').value;
-    var dateInput2 = document.getElementById('date2').value;
-    var fromDate = new Date(dateInput1).getTime();
-    var toDate = new Date(dateInput2).getTime();
+    if(analysis == "cdd") {
+        var dateInput = document.getElementById('year-list').options[document.getElementById('year-list').selectedIndex].value;
+        var fromDate = new Date("01/01/2000").setFullYear(dateInput);
+        var toDate = new Date("12/31/2000").setFullYear(dateInput);
+    }
+    else {
+        var dateInput1 = document.getElementById('date1').value;
+        var dateInput2 = document.getElementById('date2').value;
+        var fromDate = new Date(dateInput1).getTime();
+        var toDate = new Date(dateInput2).getTime();
+    }
+    
 
     /*var sensor1 = document.getElementById("sen1").checked;
     var sensor2 = document.getElementById("sen2").checked;

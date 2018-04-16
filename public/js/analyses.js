@@ -4,6 +4,7 @@ $(function(){
     $(function(){
         $('#analysis-list').change(function() {
             changeDates();
+            showBase();
             loadChart();
         });
     });
@@ -97,7 +98,7 @@ function plotDTR(tmpData)
 
 function plotCDD(tmpData)
 {
-    var T0 = 10;
+    var T0 = document.getElementById("T0").value;
     var td = new Array(); //an array of temperature data comtaining: date as string, daily high, daily low
     for(var i = 0; i < tmpData.length; i++){
         if(!realitycheck(tmpData[i][1]))continue;
@@ -165,11 +166,19 @@ function draw(data, count, title, xaxis)
 
 function changeDates(){
     var analysis = document.getElementById('analysis-list').options[document.getElementById('analysis-list').selectedIndex].value;
+    var dateInput = document.getElementById('dateRange');
+    var yearInput = document.getElementById('yearRange');
+    dateInput.className = "peer";
+    yearInput.className = "peer hidden";
     var t1 = new Date(), t2 = new Date();
     var today = new Date();
     switch(analysis) {
         case "live":
             t1.setDate(today.getDate() -7);
+            break;
+        case "cdd":
+            yearInput.className = "peer";
+            dateInput.className = "peer hidden";
             break;
         default:
             t1.setDate('1');
@@ -181,4 +190,16 @@ function changeDates(){
     }
     document.getElementById("date1").value = t1.getMonth()+1 + "/" + t1.getDate() + "/" + t1.getFullYear();
     document.getElementById("date2").value = t2.getMonth()+1 + "/" + t2.getDate() + "/" + t2.getFullYear();
+}
+
+function showBase(){
+    var analysis = document.getElementById('analysis-list').options[document.getElementById('analysis-list').selectedIndex].value;
+    var baseInput = document.getElementById('selectT0');
+    switch(analysis) {
+        case "cdd":
+            baseInput.className = "layers bd bgc-white p-20";
+            break;
+        default:
+            baseInput.className = "layers bd bgc-white p-20 hidden";
+    }
 }
