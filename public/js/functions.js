@@ -142,3 +142,38 @@ function celsuis(Ftemp)
     Ctemp = (Ftemp-32) * (5/9);
     return Ctemp;
 }
+
+function waitMsg() {
+    //while chart is generating, display please wait.
+    document.getElementById("rcrdRtrnd").innerHTML = "";
+    document.getElementById('chart').innerHTML = "<p>Please wait while the vizualization is generated.</p>";
+}
+
+function displayAnalysisDescription() {
+    var analysis = document.getElementById('analysis-list').options[document.getElementById('analysis-list').selectedIndex].value;
+    var spot = document.getElementById('analysis_desc');
+    var para = "";
+    switch(analysis) {
+        case "maxmin":
+            para = "<p>Daily Tmax/Tmin: High and Low temperatures for each day in the Date Range plotted as two lines.</p>";
+            break;
+        case "avg":
+            para = "<p>Daily Average: The mean average of all recorded temperatures for each day in the Date Range plotted as a line.</p>";
+            break;
+        case "dtr":
+            para = "<p>Daily Temperature Range (DTR): The difference between the daily high and low temperatures for each day in the Date Range plotted as a line.<br />" +
+            "DTR = T<sub>MAX</sub>-T<sub>MIN</sub></p>";
+            break;
+        case "cdd":
+            para = "<p>Cumulative Degree Days (CDD): Shows cumulative growing degree days for each month in the year chosen in the Date Range plotted as a point on a line graph. This analysis is a visualization of how many days in a given year were warm enough for some species to grow and develop. The base temperature is the lowest temperature at which those species can grow and develop.<br />" +
+                "Use Select Date Range to choose which year you want to see CDD for. Use Select DD Base (°C) to choose a base temp.<br />" +
+                "CDD = &Sigma;(T<sub>MAX</sub>-T<sub>MIN</sub>)/2 - T<sub>0</sub><br />" +
+                "T<sub>MAX</sub> = daily maximum temp;<br />" +
+                "T<sub>MIN</sub> = daily minimum temp;<br />" +
+                "T<sub>0</sub> = Base temp</p>";
+            break;
+        default:
+        para = "<p>Raw Data: Each recorded temperature in the Date Range plotted as a point on a line graph.</p>"; 
+    }
+    spot.innerHTML = "<p><strong>Analysis Description</strong></p>" + para;
+}

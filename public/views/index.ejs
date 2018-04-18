@@ -37,6 +37,9 @@
             border: 2px #9b9999 solid;
             border-radius: 2px;
         }
+        #analysis_desc {
+            margin: 0px 35px;
+        }
     </style>
 </head>
 
@@ -68,7 +71,7 @@
                                                     <option value="maxmin">Daily Tmax/Tmin</option>
                                                     <option value="avg">Daily Average</option>
                                                     <option value="dtr">Daily Temperature Range (DTR)</option>
-                                                    <option value="cdd">Cumulative Degree Days</option>
+                                                    <option value="cdd">Cumulative Degree Days (CDD)</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -168,7 +171,6 @@
                                     <div class="layers">
                                         <div class="layer w-100 mB-10"><h6 class="lh-1"><div id="errMsg" style="color: red"></div><br>Number Of Records: <span id="rcrdRtrnd"></span></h6></div>
                                         <div class="layer w-100">
-                                            
                                             <div id="chart"></div>
                                             <div id="download"><button onclick="exportData();" title="Download Data as CSV">Download Data</button></div>
                                         </div>
@@ -181,5 +183,6 @@
             </div>
         </main>
     </div>
+    <div id="analysis_desc" style="height: 100%"></div>
     <!--<div id="table" style="height: 100%"></div>-->
 </body>

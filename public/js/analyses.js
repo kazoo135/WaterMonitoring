@@ -1,10 +1,14 @@
 $(function(){
+    waitMsg();
     setDateRange();
     loadChart();
+    displayAnalysisDescription();
     $(function(){
         $('#analysis-list').change(function() {
+            waitMsg();
             showBase();
             loadChart();
+            displayAnalysisDescription();
         });
     });
     $('.formInput').change(function() {
@@ -42,7 +46,7 @@ function plotMaxTemp(tmpData)
 
 function plotAvg(tmpData)
 {
-    var td = new Array(); //an array of temperature data comtaining: date as string, total temp sum, number of temps summed
+    var td = new Array(); //an array of temperature data containing: date as string, total temp sum, number of temps summed
     for(var i=0; i<tmpData.length; i++){
         if(!realitycheck(tmpData[i][1]))continue;
         var d = new Date(tmpData[i][0]);
