@@ -156,10 +156,10 @@ function draw(data, count, title, xaxis)
         chartArea: {'right': '20', 'width': '90%'},
         height: '500',
     };
-    var table = new google.visualization.Table(document.getElementById('table'));
+    //var table = new google.visualization.Table(document.getElementById('table'));
     var chart = new google.charts.Line(document.getElementById('chart'));
 
-    table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    //table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
     chart.draw(data, google.charts.Line.convertOptions(options));
     $('#rcrdRtrnd').html(count);
 }
