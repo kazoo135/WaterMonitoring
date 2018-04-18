@@ -104,8 +104,8 @@ function setDateRange(){
     $('.datepicker').datepicker({})
     /*$('#date1').datepicker("setDate", new Date(new Date() - (7 * 24 * 60 * 60 * 1000)));
     $('#date2').datepicker("setDate", new Date());*/
-    $('#date1').datepicker("setDate", new Date('11/01/2017'));
-    $('#date2').datepicker("setDate", new Date('11/02/2017'));
+    $('#date1').datepicker("setDate", new Date("12/1/2017"));
+    $('#date2').datepicker("setDate", new Date("12/8/2017"));
 }
 
 //function to make sure a temperature makes sense

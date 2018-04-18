@@ -3,7 +3,6 @@ $(function(){
     loadChart();
     $(function(){
         $('#analysis-list').change(function() {
-            changeDates();
             showBase();
             loadChart();
         });
@@ -164,42 +163,20 @@ function draw(data, count, title, xaxis)
     $('#rcrdRtrnd').html(count);
 }
 
-function changeDates(){
-    var analysis = document.getElementById('analysis-list').options[document.getElementById('analysis-list').selectedIndex].value;
-    var dateInput = document.getElementById('dateRange');
-    var yearInput = document.getElementById('yearRange');
-    dateInput.className = "peer";
-    yearInput.className = "peer hidden";
-    var t1 = new Date(), t2 = new Date();
-    var today = new Date();
-    switch(analysis) {
-        case "live":
-            t1.setDate(today.getDate() -7);
-            break;
-        case "cdd":
-            yearInput.className = "peer";
-            dateInput.className = "peer hidden";
-            break;
-        default:
-            t1.setDate('1');
-            t1.setMonth('0');
-            t1.setFullYear('2016');
-            t2.setDate('30');
-            t2.setMonth('11');
-            t2.setFullYear('2016');
-    }
-    document.getElementById("date1").value = t1.getMonth()+1 + "/" + t1.getDate() + "/" + t1.getFullYear();
-    document.getElementById("date2").value = t2.getMonth()+1 + "/" + t2.getDate() + "/" + t2.getFullYear();
-}
-
 function showBase(){
     var analysis = document.getElementById('analysis-list').options[document.getElementById('analysis-list').selectedIndex].value;
     var baseInput = document.getElementById('selectT0');
+    var dateInput = document.getElementById('dateRange');
+    var yearInput = document.getElementById('yearRange');
     switch(analysis) {
         case "cdd":
+            yearInput.className = "peer";
+            dateInput.className = "peer hidden";
             baseInput.className = "layers bd bgc-white p-20";
             break;
         default:
             baseInput.className = "layers bd bgc-white p-20 hidden";
+            dateInput.className = "peer";
+            yearInput.className = "peer hidden";
     }
 }
